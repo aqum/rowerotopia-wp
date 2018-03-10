@@ -1,0 +1,9 @@
+.rt-map {
+  width: 100%;
+  height: 300px;
+}
+
+.rt-map-widget {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
