@@ -1,10 +1,24 @@
-const mapInstance = L.map('rt-map').setView([52.069341, 19.480255], 5);
+const mapInstance = L.map("rt-map").setView([52.069341, 19.480255], 5);
 window.rt_routes.forEach(routeSpec => {
-  L.marker(routeSpec.coordinates).addTo(mapInstance);
+  const marker = L.marker(routeSpec.coordinates).addTo(mapInstance);
+  marker.bindPopup(
+    `
+    <a href="${routeSpec.url}">
+      <img src="${routeSpec.coverUrl}" class="rt-map-popup__image">
+      <h4 class="rt-map-popup__title">${routeSpec.title}</h4>
+    </a>
+  `,
+    {
+      className: "rt-map-popup",
+      maxWidth: 200,
+      minWidth: 200,
+      closeButton: false
+    }
+  );
 });
 
 L.tileLayer(
-  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXF1bSIsImEiOiJjamVseWQ0MHEwZ3NtMzNxbXA2NjR0YWh5In0.Q3QXBlDX_g9HJOtca2QFrA",
   {
     maxZoom: 18,
     attribution:
@@ -14,3 +28,4 @@ L.tileLayer(
     id: "mapbox.outdoors"
   }
 ).addTo(mapInstance);
+mapInstance.scrollWheelZoom.disable();

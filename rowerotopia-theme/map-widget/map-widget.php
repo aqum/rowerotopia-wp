@@ -32,29 +32,20 @@
   $create_map_post = function($post)
   {
     $coordinates_string = get_post_meta($post->ID, 'rowerotopia_coordinates', true);
+    $cover_url = get_the_post_thumbnail_url($post->ID, 'medium');
 
     return array(
       'title' => $post->post_title,
       'coordinates' => explode(',', $coordinates_string),
+      'coverUrl' => $cover_url,
+      'url' => get_permalink($post->ID),
     );
   };
   $map_posts = array_map($create_map_post, $posts_array);
 ?>
 
-<div class="wrap">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <div class="rt-map-widget">
-        <div class="widget">
-          <h2 class="widget-title">Mapa moich wycieczek rowerowych</h2>
+<div id="rt-map" class="rt-map"></div>
 
-          <div id="rt-map" class="rt-map"></div>
-
-          <script>
-            window.rt_routes = <?php echo json_encode($map_posts) ?>;
-          </script>
-        </div>
-      </div>
-    </main>
-  </div>
-</div>
+<script>
+  window.rt_routes = <?php echo json_encode($map_posts) ?>;
+</script>
