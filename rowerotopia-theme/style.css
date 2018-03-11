@@ -4,3 +4,36 @@
  Author: Adam Florczak
  Template: twentyseventeen
  */
+
+@media screen and (min-width: 48em) {
+  .twentyseventeen-front-page.has-header-image .custom-header-media,
+  .twentyseventeen-front-page.has-header-video .custom-header-media,
+  .home.blog.has-header-image .custom-header-media,
+  .home.blog.has-header-video .custom-header-media {
+    height: 1200px;
+    height: 50vh;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .has-header-image .custom-header-media img {
+    top: -50%;
+  }
+}
+
+.admin-bar.twentyseventeen-front-page.has-header-image .custom-header-media,
+.admin-bar.twentyseventeen-front-page.has-header-video .custom-header-media,
+.admin-bar.home.blog.has-header-image .custom-header-media,
+.admin-bar.home.blog.has-header-video .custom-header-media {
+  height: calc(50vh - 32px);
+}
+
+.has-header-image.twentyseventeen-front-page .custom-header,
+.has-header-video.twentyseventeen-front-page .custom-header,
+.has-header-image.home.blog .custom-header,
+.has-header-video.home.blog .custom-header {
+  display: table;
+  height: 300px;
+  height: 50vh;
+  width: 100%;
+}
