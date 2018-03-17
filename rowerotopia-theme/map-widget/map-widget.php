@@ -26,12 +26,12 @@
 
   $args = array(
     'posts_per_page' => -1,
-    'meta_key' => 'rowerotopia_coordinates',
+    'meta_key' => 'rt_coordinates',
   );
   $posts_array = get_posts($args);
   $create_map_post = function($post)
   {
-    $coordinates_string = get_post_meta($post->ID, 'rowerotopia_coordinates', true);
+    $coordinates_string = get_post_meta($post->ID, 'rt_coordinates', true);
     $cover_url = get_the_post_thumbnail_url($post->ID, 'medium');
 
     return array(
