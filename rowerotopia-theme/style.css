@@ -15,10 +15,6 @@
     max-height: 100%;
     overflow: hidden;
   }
-
-  .has-header-image .custom-header-media img {
-    top: -50%;
-  }
 }
 
 .admin-bar.twentyseventeen-front-page.has-header-image .custom-header-media,
@@ -36,4 +32,29 @@
   height: 300px;
   height: 50vh;
   width: 100%;
+}
+
+.has-header-image .custom-header-media img {
+  top: -50%;
+}
+
+.rt-trip-stat__label {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 0.6875rem;
+  letter-spacing: 0.0625rem;
+  color: #6f6f6f;
+}
+
+.rt-trip-stat__value {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.6875rem;
+}
+
+.rt-trip-stat__link {
+  font-size: 1rem;
+  position: relative;
+  top: -0.5rem;
 }
