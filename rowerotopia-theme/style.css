@@ -89,3 +89,19 @@
 		width: 68%;
 	}
 }
+
+body {
+  font-size: 18px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: "Lato", helvetica, arial, sans-serif;
+}
+
+.entry-content p {
+	font-family: "Alegreya", serif;
+}
