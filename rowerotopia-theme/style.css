@@ -58,3 +58,34 @@
   position: relative;
   top: -0.5rem;
 }
+
+@media screen and (min-width: 48em) {
+  .page-two-column .panel-content .entry-header,
+  .blog:not(.has-sidebar) .entry-content blockquote.alignright,
+	.twentyseventeen-front-page.page-two-column .entry-content blockquote.alignright,
+	.archive:not(.has-sidebar) .entry-content blockquote.alignright,
+  .page-two-column .entry-content blockquote.alignright,
+  .site-footer .widget-column.footer-widget-1,
+  .social-navigation,
+  .has-sidebar #secondary,
+  body:not(.has-sidebar):not(.page-one-column) .page-header,
+	body.has-sidebar.error404 #primary .page-header,
+	body.page-two-column:not(.archive) #primary .entry-header,
+	body.page-two-column.archive:not(.has-sidebar) #primary .page-header {
+		width: 26%;
+	}
+
+  .navigation.pagination,
+  .site-footer .widget-column.footer-widget-2,
+  .site-info,
+  .has-sidebar:not(.error404) #primary,
+	.blog:not(.has-sidebar) #primary article,
+	.archive:not(.page-one-column):not(.has-sidebar) #primary article,
+	.search:not(.has-sidebar) #primary article,
+	.error404:not(.has-sidebar) #primary .page-content,
+	.error404.has-sidebar #primary .page-content,
+	body.page-two-column:not(.archive) #primary .entry-content,
+	body.page-two-column #comments {
+		width: 68%;
+	}
+}
