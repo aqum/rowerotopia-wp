@@ -87,7 +87,20 @@
 	body.page-two-column:not(.archive) #primary .entry-content,
 	body.page-two-column #comments {
 		width: 68%;
-	}
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .rt-image-wide {
+    position: relative;
+  }
+
+  .rt-image-wide__image {
+    width: 800px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: block;
+  }
 }
 
 body {
