@@ -90,6 +90,11 @@
   }
 }
 
+.rt-image-wide__image,
+.rt-image-wide__image img {
+  display: block;
+}
+
 @media screen and (min-width: 1200px) {
   .rt-image-wide {
     position: relative;
@@ -117,4 +122,24 @@ textarea {
 
 .entry-content p {
 	font-family: "Alegreya", serif;
+}
+
+.medium-zoom-image,
+.medium-zoom-overlay {
+  z-index: 10;
+}
+
+.rt-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rt-gallery__image {
+  display: block;
+  flex-basis: 33%;
+}
+
+.rt-gallery__image img {
+  width: 100%;
+  display: block;
 }
