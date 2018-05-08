@@ -3,6 +3,7 @@
  Theme URI: https://rowerotopia.pl
  Author: Adam Florczak
  Template: twentyseventeen
+ Version: 0.1.0
  */
 
 @media screen and (min-width: 48em) {
@@ -120,7 +121,9 @@ textarea {
 	font-family: "Lato", helvetica, arial, sans-serif;
 }
 
-.entry-content p {
+.entry-content p,
+.entry-content ul,
+.entry-content ol {
 	font-family: "Alegreya", serif;
 }
 
@@ -132,6 +135,7 @@ textarea {
 .rt-gallery {
   display: flex;
   flex-wrap: wrap;
+  margin: 1.5em 0;
 }
 
 .rt-gallery__image {

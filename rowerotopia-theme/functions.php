@@ -10,6 +10,19 @@ function theme_enqueue_styles() {
   }
 }
 
+// by some reason wordpress includes version of parent theme for child assets
+function append_child_asset_version( $src ) {
+	// Don't touch admin scripts
+	if ( is_admin() )
+		return $src;
+
+  $child_version = wp_get_theme()->get('Version');
+
+	return preg_replace( '/\.(js|css)\?ver=(.+)$/', '.$1', $src ) . '?' . $child_version;
+}
+add_filter( 'script_loader_src', 'append_child_asset_version' );
+add_filter( 'style_loader_src', 'append_child_asset_version' );
+
 add_action( 'wp_enqueue_scripts', 'cleanup_parent_styles', 100 );
 function cleanup_parent_styles() {
   wp_dequeue_style( 'twentyseventeen-fonts' );
