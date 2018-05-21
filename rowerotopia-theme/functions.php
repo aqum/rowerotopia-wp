@@ -31,6 +31,7 @@ function cleanup_parent_styles() {
 
 add_action( 'after_setup_theme', 'image_sizes_setup' );
 function image_sizes_setup() {
+  add_image_size( 'rowerotopia-thumbnail', 300, 300 );
   add_image_size( 'rowerotopia-content', 800, 800 );
   add_image_size( 'rowerotopia-content-zoom', 1400, 1400 );
 }
@@ -66,7 +67,7 @@ function rt_gallery_shortcode( $atts ) {
   foreach ($image_ids as $image_id_str) {
     $image_id = intval($image_id_str);
     $full_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-content-zoom' );
-    $small_size_spec = wp_get_attachment_image_src( $image_id, 'small' );
+    $small_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-thumbnail' );
 
     $html = $html
         . '<a href="' . $full_size_spec[0] . '" class="rt-gallery__image">'
