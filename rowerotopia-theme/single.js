@@ -1,18 +1,30 @@
-document.addEventListener("DOMContentLoaded", setupZoom);
-function setupZoom() {
-  const zoomableImages = ['.rt-image-wide__image img', '.rt-gallery__image img'];
+jQuery(document).ready(function() {
+  jQuery('a.rt-image-wide__image').each(function(index, element) {
+    setupMaginificPopup(element, false);
+  });
 
-  zoomableImages
-    .reduce((elements, cssPath) => {
-      const found = Array.from(document.querySelectorAll(cssPath));
-      if (found.length > 0) {
-        return elements.concat(found);
+  jQuery('.rt-gallery').each(function(index, element) {
+    setupMaginificPopup(jQuery(element).find('a'), true);
+  });
+
+  function setupMaginificPopup(elements, isGallery) {
+    const $elements = jQuery(elements);
+    $elements.magnificPopup({
+      type: 'image',
+      mainClass: 'mfp-with-zoom',
+      gallery: {
+        enabled: isGallery
+      },
+      zoom: {
+        enabled: true,
+        duration: 300,
+        easing: 'ease-in-out',
+        opener: function(openerElement) {
+          return openerElement.is('img')
+            ? openerElement
+            : openerElement.find('img');
+        }
       }
-
-      return elements;
-    }, [])
-    .forEach(element => {
-      element.setAttribute('data-zoom-target', element.parentElement.href);
-      mediumZoom(element, { margin: 30 });
     });
-}
+  }
+});
