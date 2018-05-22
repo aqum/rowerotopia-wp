@@ -44,14 +44,15 @@ function rt_image_shortcode( $atts ) {
 
   $full_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-content-zoom' );
   $small_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-content' );
+  $caption = wp_get_attachment_caption( $image_id );
 
   $html =
     '<figure class="wp-caption aligncenter rt-image-wide">'
-      . '<a href="' . $full_size_spec[0] . '" class="rt-image-wide__image">'
-        . '<img src="' . $small_size_spec[0] . '">'
+      . '<a href="' . $full_size_spec[0] . '" class="rt-image-wide__image" data-rt-lightbox-caption="' . $caption . '">'
+        . '<img src="' . $small_size_spec[0] . '" alt="' . $caption . '">'
       . '</a>'
       . '<figcaption class="wp-caption-text">'
-        . wp_get_attachment_caption( $image_id )
+        . $caption
       . '</figcaption>'
     . '</figure>';
 
@@ -69,10 +70,11 @@ function rt_gallery_shortcode( $atts ) {
     $image_id = intval($image_id_str);
     $full_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-content-zoom' );
     $small_size_spec = wp_get_attachment_image_src( $image_id, 'rowerotopia-thumbnail' );
+    $caption = wp_get_attachment_caption( $image_id );
 
     $html = $html
-        . '<a href="' . $full_size_spec[0] . '" class="rt-gallery__image">'
-          . '<img src="' . $small_size_spec[0] . '">'
+        . '<a href="' . $full_size_spec[0] . '" class="rt-gallery__image" data-rt-lightbox-caption="' . $caption . '">'
+          . '<img src="' . $small_size_spec[0] . '" alt="' . $caption . '">'
         . '</a>';
   }
 

@@ -15,6 +15,11 @@ jQuery(document).ready(function() {
       gallery: {
         enabled: isGallery
       },
+      image: {
+        titleSrc: function(item) {
+          return item.el.data('rt-lightbox-caption');
+        }
+      },
       zoom: {
         enabled: true,
         duration: 300,
