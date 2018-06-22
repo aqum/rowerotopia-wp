@@ -2,7 +2,7 @@
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-  wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Alegreya:400,700|Lato:400,700&amp;subset=latin-ex' );
+  wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Alegreya:400,700|Lato:400,700&amp;subset=latin-ext' );
   wp_enqueue_style( 'magnific-popup', 'https://unpkg.com/magnific-popup@1.1.0/dist/magnific-popup.css' );
 
   if ( is_page() || is_single() ) {
