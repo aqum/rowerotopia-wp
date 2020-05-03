@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  db:
+    extends:
+      file: docker-compose.base.yml
+      service: db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+  wordpress:
+    extends:
+      file: docker-compose.base.yml
+      service: wordpress
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+    db_data:
