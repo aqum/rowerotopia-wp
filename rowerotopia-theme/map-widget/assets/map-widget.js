@@ -18,7 +18,7 @@ window.rt_routes.forEach(routeSpec => {
 });
 
 L.tileLayer(
-  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXF1bSIsImEiOiJjamVseWQ0MHEwZ3NtMzNxbXA2NjR0YWh5In0.Q3QXBlDX_g9HJOtca2QFrA",
+  "https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXF1bSIsImEiOiJjamVseWQ0MHEwZ3NtMzNxbXA2NjR0YWh5In0.Q3QXBlDX_g9HJOtca2QFrA",
   {
     maxZoom: 18,
     attribution:
