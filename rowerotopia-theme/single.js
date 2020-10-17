@@ -1,35 +1,34 @@
 jQuery(document).ready(function() {
-  jQuery('a.rt-image-wide__image').each(function(index, element) {
-    setupMaginificPopup(element, false);
-  });
+  elements = jQuery('.wp-block-image a, .blocks-gallery-item a, .rt-gallery a, .rt-image-wide a')
 
-  jQuery('.rt-gallery').each(function(index, element) {
-    setupMaginificPopup(jQuery(element).find('a'), true);
-  });
-
-  function setupMaginificPopup(elements, isGallery) {
-    const $elements = jQuery(elements);
-    $elements.magnificPopup({
-      type: 'image',
-      mainClass: 'mfp-with-zoom',
-      gallery: {
-        enabled: isGallery
-      },
-      image: {
-        titleSrc: function(item) {
-          return item.el.data('rt-lightbox-caption');
+  elements.magnificPopup({
+    type: 'image',
+    mainClass: 'mfp-with-zoom',
+    gallery: {
+      enabled: true
+    },
+    image: {
+      titleSrc: function(item) {
+        rtImageCaption = item.el.data('rt-lightbox-caption')
+        if (rtImageCaption) {
+          return rtImageCaption;
         }
-      },
-      zoom: {
-        enabled: true,
-        duration: 300,
-        easing: 'ease-in-out',
-        opener: function(openerElement) {
-          return openerElement.is('img')
-            ? openerElement
-            : openerElement.find('img');
+
+        const wpFigure = item.el.closest('figure')
+        if (wpFigure) {
+          return wpFigure.find('figcaption').text().trim();
         }
       }
-    });
-  }
+    },
+    zoom: {
+      enabled: true,
+      duration: 300,
+      easing: 'ease-in-out',
+      opener: function(openerElement) {
+        return openerElement.is('img')
+          ? openerElement
+          : openerElement.find('img');
+      }
+    }
+  });
 });
